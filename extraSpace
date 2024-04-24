@@ -1,0 +1,100 @@
+/*Scanner input = new Scanner(new File("C:\\Users\\nicol\\OneDrive\\Desktop\\creatures.txt"));
+
+        String[] arrayOfLine = new String[3];
+        while (input.hasNextLine()){
+            String line = input.nextLine();
+            arrayOfLine = line.split(",");
+            Integer three = Integer.valueOf(arrayOfLine[3]);
+            // System.out.println(Arrays.toString(arrayOfLine));
+            switch(arrayOfLine[1]) {
+
+                case "Dragon":
+                    creaturesArray.add(new Dragon(arrayOfLine[0],arrayOfLine[1],arrayOfLine[2],three));
+                    break;
+                case "Elf":
+                    creaturesArray.add(new Elf(arrayOfLine[0],arrayOfLine[1],arrayOfLine[2],three));
+                    break;
+                case "Goblin":
+                    creaturesArray.add(new Goblin(arrayOfLine[0],arrayOfLine[1],arrayOfLine[2],three));
+                    break;
+                case "Genie":
+                    creaturesArray.add(new Genie(arrayOfLine[0],arrayOfLine[1],arrayOfLine[2],three));
+                    break;
+                default:
+                   // creaturesArray.add(new MagicalCreature(arrayOfLine[0],arrayOfLine[1],arrayOfLine[2],three));
+                    break;
+            }
+
+        }
+
+war();
+
+    }
+    public static void war () {
+       int userMoves=0;
+       Scanner user = new Scanner(System.in);
+       System.out.print("How many moves ? ");
+       userMoves = user.nextInt();
+       //System.out.println();
+        while (userMoves!= 0) {
+            Random r = new Random();
+            int rand1 =0;
+            int rand2=0;
+            int wand=0;
+            int shield =0;
+            rand1 =r.nextInt(creaturesArray.size()-1);
+            rand2 =r.nextInt(creaturesArray.size()-1);
+            while (rand2 ==rand1) {
+                rand2 =r.nextInt(creaturesArray.size()-1);
+            }
+            MagicalCreature a = creaturesArray.get(rand1);
+            MagicalCreature b = creaturesArray.get(rand2);
+            System.out.println("Killer = " + a.getType() + " " + a.getName());
+            System.out.println("Victim = " + b.getType() + " " + b.getName());
+            //System.out.println( "| Name: " + a.getName() + " |"+ " Type: " +a.getType() + " |" + "Vs" + "| Name: " + b.getName() + " |"+ " Type: " +b.getType() + " |");
+            //System.out.println(a.getType() +" Vs " +b.getType());
+            if (a instanceof Genie) {
+                    System.out.print("Give your genie a wand? (1=Yes 2=No)");
+                    Scanner input = new Scanner(System.in);
+                    wand = input.nextInt();
+                    if (wand == 1) {
+                       ((Genie) a).setWand(true);
+                    }
+
+            }
+
+            if (Objects.equals(b.type, "Elf")){
+                System.out.print("Give your elf a shield? (1=Yes 2=No) ");
+                Scanner input = new Scanner(System.in);
+                wand = input.nextInt();
+                if (wand == 1) {
+                    ((Elf) b).setShield(true);
+                }
+            }
+
+
+            a.kill(b);
+
+           if (!b.isAlive){
+               System.out.println("Removing the Dead");
+               creaturesArray.remove(rand2);
+           }
+            userMoves--;
+           displayCreatures();
+        }
+
+
+    }
+
+public static void displayCreatures() {
+        int count =0;
+        System.out.println("----------------------------------------");
+        System.out.println("Creatures still Alive after this round: ");
+    System.out.println("----------------------------------------");
+        for (MagicalCreature e: creaturesArray) {
+            System.out.print(count + " : ");
+        System.out.println(e.toString());
+        count++;
+        }
+        System.out.println();
+*/
